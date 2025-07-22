@@ -1,0 +1,19 @@
+# Node modules (dependências do npm)
+node_modules/
+
+# Arquivos de build (se gerar CSS ou JS compilado numa pasta tipo dist ou assets/css)
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de configuração do editor (VSCode, etc)
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
