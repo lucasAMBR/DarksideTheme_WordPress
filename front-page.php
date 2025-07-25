@@ -7,7 +7,7 @@
 
     <?php get_template_part("template-parts/services/services"); ?>
 
-     <?php get_template_part("template-parts/contect_form/contact_form"); ?>
+    <?php get_template_part("template-parts/contact_form/contact_form"); ?>
 </main>
 
 <?php get_footer(); ?>

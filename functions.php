@@ -42,3 +42,14 @@ function corrigir_classe_menu_home($classes, $item) {
 
     return $classes;
 }
+
+function carregar_scripts_avaliacoes() {
+    wp_enqueue_script(
+        'avaliacoes-fake',
+        get_template_directory_uri() . '/assets/js/fake_reviews.js',
+        [],
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'carregar_scripts_avaliacoes');
