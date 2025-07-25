@@ -6,9 +6,9 @@ function darkside_theme_enqueue_styles() {
     wp_enqueue_script(
         'menu-toggle',
         get_template_directory_uri() . '/assets/js/mobile_navbar.js',
-        array(), // dependências, se precisar
+        array(),
         false,
-        true // carrega no final do body
+        true 
     );
 }
 
@@ -21,13 +21,6 @@ function darkside_theme_register_menus() {
         "main-menu" => "Main Menu"
     ]);
 }
-
-// HOOKS
-add_action('wp_enqueue_scripts', 'darkside_theme_enqueue_styles');
-add_action('wp_enqueue_scripts', 'darkside_theme_custom_navbar_styles');
-add_action("after_setup_theme", "darkside_theme_register_menus");
-
-add_filter('nav_menu_css_class', 'corrigir_classe_menu_home', 10, 2);
 
 function corrigir_classe_menu_home($classes, $item) {
 
@@ -52,4 +45,18 @@ function carregar_scripts_avaliacoes() {
         true
     );
 }
+
+add_action('template_redirect', function () {
+  if (is_404()) {
+    status_header(404);
+    include get_template_directory() . '/404.php';
+    exit;
+  }
+});
+
+// HOOKS
+add_action('wp_enqueue_scripts', 'darkside_theme_enqueue_styles');
+add_action('wp_enqueue_scripts', 'darkside_theme_custom_navbar_styles');
+add_action("after_setup_theme", "darkside_theme_register_menus");
+add_filter('nav_menu_css_class', 'corrigir_classe_menu_home', 10, 2);
 add_action('wp_enqueue_scripts', 'carregar_scripts_avaliacoes');
